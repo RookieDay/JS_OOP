@@ -1,0 +1,84 @@
+<<!DOCTYPE html>
+<html>
+<head>
+	<title>AA</title>
+<style type="text/css">
+	div {
+		width: 500px;
+		height: 50px;
+		margin: 10px 0;
+		border: 1px solid red;
+	}
+</style>
+<script type="text/javascript">
+
+			var str = "#dv,       .c1         .c2,     div    ";
+
+	// var firstSpace = function(str) {
+	// 	var i;
+	// 	for( i = 0; i < str.length; i++) {
+	// 		if(str.charAt(i) !== ' '){
+	// 			return i;
+	// 		}
+	// 	}
+	// 	return -1;
+	// }
+
+	// var lastSpace = function(str) {
+	// 	var i;
+	// 	for( i = str.length - 1; i >= 0; i--) {
+	// 		if(str.charAt(i) !== ' '){
+	// 			return i;
+	// 		}
+	// 	}
+	// 	return -1;
+	// }
+
+	// var trim = function (str) {
+	// 	return str.slice(firstSpace(str),lastSpace(str) + 1);
+	// }
+	// var temps = str.split(',');
+	// for ( var i = 0; i < temps.length; i++) {
+	// 	temps[i] = trim(temps[i]);
+	// }
+
+	// alert("|" + temps.join("|") + "|");
+
+
+	var trim = function(str) {
+		return str.replace(/^\s+|\s+$/g,"");
+	};
+
+			// 	var s = "             123           ";
+			// alert( "|" + trim( s ) + "|" );
+
+	str = trim(str).replace(/\s+/g, " ").replace(/,\s+/g,",");
+	alert("|" + str + "|")
+
+</script>		
+</head>
+<body>
+<!-- <div class="c"></div>
+<div id="dv"></div>
+<div class="c"></div>
+ <div class="c"></div>	
+-->
+</body>
+<script type="text/javascript">
+	// var list = get('.c')
+
+	// for(var i = 0; i < list.length; i++) {
+	// 		list[ i ].style.backgroundColor = 'yellow';
+	// }
+
+
+	// 		var r = /(a(?:b(c)))/;
+			
+	// 		var m = r.exec( "abc" );
+
+	// 					var x = /(a(b(c)))/;
+			
+	// 		var n = x.exec( "abc" );
+
+</script>
+</html>

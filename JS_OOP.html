@@ -1,0 +1,836 @@
+<!-- <<!DOCTYPE html>
+<html>
+<head>
+	<title>AAA</title>
+<script type="text/javascript">
+
+	// var arr = [{},{}];
+	// var o1 = new Object();
+	// // var Person = fucntion(){}；
+	// // var p = new Person();
+	// // alert(o1.__proto__);
+	// // alert(o1.constructor.prototype);
+	// alert(o1.constructor.prototype == o1.__proto__)
+
+
+	// var o1 = {num:123};
+	// var o2 = {num2:333};
+	// o2.extend = function (obj) {
+	// 	for(var k in obj) {
+	// 		this[k] = obj[k];
+	// 	}
+	// } ;
+	// o2.extend(o1)
+
+	// function Fn(){}
+	// Fn.fn = Fn.prototype.extend = function(obj){
+	// 	for(var k in obj){
+	// 		this[k] = obj[k];
+	// 	}
+	// };
+	// //Fn.prototype.extend({});
+	// Fn.fn.extend({});
+
+	// function Func() {
+	// }
+	// var f1 = new Func();
+	// Func.prototype = {
+	// 	constructor:Func,
+	// 	name: 'jim'
+	// };
+	// var f2 = new Func();
+	// console.log( f1.name ); 
+	// console.log( f2.name ); 
+
+	// var car = {name:'jim'};
+	// var o1 = {name:'jim',car:car};
+	// function Person(){
+	// 	this.name = 'jin';
+	// }	
+	// var p = new Person();	
+
+	//Object----method
+	// var Person = function(){
+	// 	this.name = 'jim';
+	// };
+	// var p1 = new Person();
+	// var p2 = new Person.prototype.constructor();
+
+	// Person.prototype.init = Person;
+	// var p3 = new Person.prototype.init();
+
+	// var o = {name:'jim'};
+	// function Person() {
+	// 	this.name = 'tom';
+	// }
+	// Person.prototype = o;
+
+	// var p = new Person();
+	// console.log(p.name);
+	// var isTrue = p.hasOwnProperty('name');
+	// console.log(isTrue);
+	// var Person = function(){};
+	// var p = new Person();
+	// // console.log(p.isPrototypeOf(Person));
+	// // console.log(p.isPrototypeOf(Person.prototype));
+	// // console.log(Person.prototype.isPrototypeOf(p));
+	// // console.log(Person.prototype.isPrototypeOf(Person));
+	// var o = {};
+	// console.log(o.isPrototypeOf(p));
+
+	//propertyIsEnumberable
+	// var o = {name:'jim'};
+	// o.__proto__.age=12;
+	// // alert('hasOwnProperty' in o)
+	// // for(var k in o) {
+	// // 	console.log('in here');
+	// // 	console.log(k);
+	// // }
+	// console.log(o.age);
+	// console.log(o.propertyIsEnumerable('name'));
+	// console.log(o.propertyIsEnumerable('age'));
+
+
+
+	// var d = new Date();
+	// console.log(d.toString());
+	// console.log(d.toLocaleString());
+
+	// function Person(){
+	// 	this.toString = function(){
+	// 		return 'toString ***';
+	// 	}
+	// }
+	// var d = new Person();
+	// console.log(d.toString());
+	// console.log(d.toLocaleString());
+
+
+	// var o = [1,2,3];
+	// alert(o.valueOf());
+	// console.log([] instanceof Array);
+	// console.log([] instanceof Object);
+	// function Fn(){}
+	// function Foo(){}
+	// // var o = new Fn();
+	// // console.log(o instanceof Foo)
+
+	// Fn.prototype = new Foo();
+	// var o = new Fn();
+	// console.log(o instanceof Foo)
+	// 			console.log( Array instanceof Function );
+	// 		function PeSoN() {}
+	// 		console.log( PeSoN instanceof Function );
+	// 		console.log( Date instanceof Function );
+	// 		console.log( Object instanceof Function );
+	// console.log( Function instanceof Function );
+
+	// 			function max( a, b )  {
+	// 			return a > b ? a : b;
+	// 		}
+			
+	// 		var fnMax = new Function( 'a', 'b', 'return a > b ? a : b;' );
+			
+	// 		var res = fnMax( 1, 2 );
+
+	// 		alert(res);
+
+
+		// function sum() {
+		// 		var total = 0, 
+		// 			args = arguments, 
+		// 			len = args.length;
+		// 		for ( var i = 0; i < len; i++ ) {
+		// 			total += args[ i ];
+		// 		}
+		// 		return total;
+		// 	}
+			
+		// 	var res = sum( 1, 2, 3, 4, 5 );
+		// 	alert( res );
+
+// var fnSum = new Function( 'var total = 0, args = arguments, len = args.length;for ( var i = 0; i < len; i++ ) {total += args[ i ];}return total;' );
+			
+// 			var res = fnSum( -1, 1,1,1,1,1,1 );
+// 			alert ( res );
+
+
+// 	console.log(Object instanceof Function)
+// 	console.log(Function instanceof Object)
+
+			
+// 			var s = '12\
+// 3';
+			
+// 			alert( s );
+// 						var r = Math.max(1,2,3,4);
+// 			alert( r );
+
+
+		// var a = 10;
+		// eval('var a = 100');
+		// console.log(a);
+
+					var str = '{ name: "jim", age: 19, gender: "男" }';
+			// '[{{}},{{},[]}]'
+			// 当从服务器拿到字符串以后, 理论上应该将其作为数据对象使用
+			// 解析字符串
+			// 传统的做法
+			
+			str = str.replace('{', "").replace("}", "");
+			// ' name: "jim", age: 19, gender: "男" '
+			var arr = str.split( ',' );
+			// [ ' name: "jim"', ' age: 19', ' gender: "男" ' ]
+			
+			var o = {};
+			for ( var k in arr ) {
+				var tempArr = arr[ k ].split( ':' );
+				
+				// 去空格
+				var key = tempArr[ 0 ].trim();
+				var value = tempArr[ 1 ].trim();
+				console.log(key)
+				o[ key ] = value;
+				
+			}
+			
+			
+			console.log( o.name );
+			console.log( o.age );
+			console.log( o.gender );
+
+
+
+			
+					var o1 = {  };
+			
+			// var o2 = eval( "(" + str + ")" );
+			
+			var o2 = eval(  str );
+			
+			console.log( o2.name );
+			console.log( o2.age );
+			console.log( o2.gender );
+</script>
+
+	</head>
+	<body>
+	</body>
+</html>
+ -->
+
+
+<!--  <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.c {
+				width: 800px;
+				height: 300px;
+				border: 1px solid red;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dv" class="c">
+		</div>
+		<textarea class="c">
+			
+		</textarea>
+	</body>
+	<script type="text/javascript">
+		
+		// 理论上用户输入一个字符就做相应的处理, 才可以实现实时的效果
+		var txt = document.getElementsByClassName( 'c' )[ 1 ];
+		// 绑定事件
+		txt.onkeyup = function () {
+			 console.log( this.value );
+			// 
+			// 每次执行代码的时候都将 div 中的所有元素都去掉
+			document.getElementsByClassName( 'c' )[ 0 ].innerHTML = "";
+			
+			try {
+				eval( this.value );
+			} catch ( e ) {
+				
+			}
+			
+		};
+		
+	</script>
+</html>
+ -->
+
+
+
+<!--  <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			
+			if ( 0 ) {
+				alert( 123 ); alert( 456 );
+			}// 逻辑上, 代码块就是一条语句
+			
+			// : 语法用在哪里?
+			// case :
+			// 键值对
+			var o = { name: 'jim' };
+			
+			// {} 有两重意思: 1, 代码块, 2, 对象
+			
+			if ( 1 ) {
+				// :
+			}
+			
+			*/
+			// doc
+			
+			
+			// var str = '{ name: "jim" }';
+			
+			// // eval( 'var o = ' + str );
+			
+			// var o = eval( '(' + str + ')' );  
+			
+
+// 			var str = '{ name: "tom" }';
+// 			var o = (new Function( 'return ' + str ))();
+// //			var o = (new Function( str ))(); 报错，name is not defined，因为无返回值
+// 			alert( o.name );
+			
+// function Person() {}
+// 	var data = '[{name:"神器js", price:100, img:"1234567800.jpg"},{name:"神器js", price:100, img:"12345678900.jpg"}]';
+// 			var o = eval( "(" + data + ")" );
+// //			var o1 = o[ 0 ];
+// //			var o2 = o[ 1 ];
+// var o1 = data[0];
+// var o2 = data[1];
+
+// var compare = function (s1,s2) {
+// 	return s1.name == s2.name && s1.price == s2.price && 
+// 	s1.img == s2.img;
+// }
+
+	// function foo(){
+	// 	foo();
+	// }
+	// foo(); 
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+ -->
+
+<!--  <<!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>AA</title>
+ 	<style type="text/css">
+			div {
+				border : 1px dotted pink;
+				margin: 0;
+				padding: 5px;
+				height: 100px;
+			}
+			p {
+				border : 1px dotted green;
+				margin: 0;
+				padding: 5px;
+				height: 10px;
+			}
+		</style>
+
+ </head>
+ <body>
+ 		<div>
+			<p></p>
+			<p><span>哈哈哈</span></p>
+			<p></p>
+		</div>
+		<div>
+			<p></p>
+			<p></p>
+		</div>
+		<div>
+			<p></p>
+		</div>
+		<script type="text/javascript">
+			
+		</script>
+ </body>
+ </html> -->
+
+ <<!DOCTYPE html>
+ <html>
+
+ <head>
+     <meta charset="UTF-8">
+ 	<title>aaa</title>
+
+ 	<script type="text/javascript">
+ 		// var fib = function (n) {
+ 		// 	if(n === 0 || n === 1) return 1;
+ 		// 	return fib(n-1) + fib(n-2);
+ 		// }
+ 		// var res = fib(5);
+ 		// console.log(res);
+ 		// function S(n) {
+ 		// 	if(n===1) return 1;
+ 		// 	return S(n-1) + (2*n-1);
+ 		// }
+ 		// for(var i = 1;i < 9;i ++){
+ 		// 	console.log(S(i));
+ 		// }
+ 		// 	var num = 123;
+			// function f1() {
+			// 	console.log( num );
+			// }
+			
+			// function f2() {
+			// 	var num = 456;
+			// 	f1();
+			// }
+			
+			// f2(); 
+						
+			// var num = 123;
+			// function f1( num ) {
+			// 	console.log( num );
+			// }
+			
+			// function f2() {
+			// 	var num = 456;
+			// 	f1( num );
+			// }
+			
+			// f2();
+
+			// var num = 123;
+			
+			// function f1(  ) {
+			// 	console.log( num );
+			// }
+			
+			// function f2() {
+			// 	num = 456;
+			// 	f1(  );
+			// }
+			
+			// f2();
+			// console.log( num );
+			
+
+	// (function (a) {
+	// 	function a(){}   
+		
+		
+ //        // console.log(a + '');  //打印出来的是函数体
+ //                console.log(a + '');  //打印出来的是函数体
+
+ //        a = 10;
+        
+ //    }( 100 ));
+
+ 		// function foo() {
+ 		// 	var num = 1;
+ 		// 	return num;
+ 		// }
+ 		// var res = foo();
+ 		// alert(res);
+
+ 		// function Foo() {
+ 		// 	var o = {num:123};
+ 		// 	return o;
+ 		// }
+ 		//  var obj = Foo();
+
+ 		// function Foo() {
+			// 	var num;
+			// 	var tempO = {};
+			// 	tempO.__num__ = num;
+			// 	tempO.set_Num = function ( v ) {
+			// 		num = v;
+			// 	};
+			// 	tempO.get_Num = function () {
+			// 		return num;
+			// 	};
+			// 	return tempO;
+			// }
+			
+			// var o = Foo();
+			
+			// console.log( o.__num__ );
+			
+			// o.set_Num( 1 );
+			
+			// console.log(o.__num__);  // 取不出数据
+			// console.log(o.get_Num());
+
+			//
+			// var count = 0;
+			// var fib = function(n) {
+			// 	//
+			// 	count++;
+			// 	if( n < 0 ) throw new error('can not < 0');
+			// 	if(n===0 || n ===1) return 1;
+			// 	return arguments.callee(n -1 ) +
+			// 		arguments.callee(n-2);
+			// };
+
+			// // for(var i = 0 ; i <= 10;i++){
+			// // 	console.log(fib(i));
+			// // }
+			// fib( );
+			// console.log(count);
+
+// var fib = (function(){
+// 				var arr[];
+// 			return function(n) {
+// 				//
+// 				count++;
+// 				if( n < 0 ) throw new error('can not < 0');
+// 				var res = arr[n];
+// 				if(res !== undefined){
+// 					return res;
+// 				}else {
+// 				if(n===0 || n ===1) return 1;
+// 				res = arguments.callee(n -1 ) +
+// 					arguments.callee(n-2);	
+// 					arr[n] = res;
+// 					return res;				
+// 				}
+
+// 			};
+// })();
+		// createCache
+			// var fib = function ( n ) {
+			// 	var res = fib[ n ];   // 先到函数名中取
+			// 	if ( res !== undefined ) {
+			// 		// 函数中有数据
+			// 		return res;
+			// 	} else {
+			// 		// 如果是 1 或 0 则将 1 返回给 res
+			// 		// 否则递归结果交给 res;
+					
+			// 		if ( n === 0 || n === 1 ) {
+			// 			res =  1;
+			// 		} else {
+			// 			res = arguments.callee( n - 1 ) + 
+			// 					arguments.callee( n - 2 );
+			// 		}
+					
+			// 		fib[ n ] = res;  // 将计算的结果放到数组中, 那么下一次再计算的
+			// 						 // 时候可以直接拿来用, 就不用计算量
+			// 		fib.len++;
+					
+			// 		return res;
+			// 	}
+			// };
+			
+			// fib.len = 0;
+			
+			// fib( 5 );
+			// 			var o = { name: 'jim', age: 19, gender: '男' };
+			// var Student = function() {};
+			// Student.prototype = o;
+			// Student.prototype.study = function () { alert('学习'); };
+			// var s = new Student();
+			// var	Car	=	function(	name	)	{
+			// 	this.carName	=	name;
+			// };
+			
+			// var	Person	=	function(	pName,	cName	)	{
+			// 				this.name	=	pName;
+			// 				this.car	=	new	Car(	cName	);
+			// };
+			
+			// var	extend	=	function(	obj	)	{
+			// 	var	o	=	{};
+			// 	for	(	var	k	in	obj	)	{
+			// 					o[	k	]	=	obj[	k	];
+			// 	}
+			// 	return	o;
+			// }
+			// // 浅拷贝, 浅度拷贝			shallowcopy
+			// // 如果有浅拷贝就有深拷贝
+			// // 深拷贝需要使用递归计算		deepcopy
+			
+			// var	p1	=	new	Person(	"jim",	"BMW"	);
+			// var	p2	=	p1;
+			// var	p3	=	extend(	p1	);
+			
+			// console.log(	p1.name	+	",	"	+	p1.car.carName	); // jim, bmw
+			// console.log(	p2.name	+	",	"	+	p2.car.carName	); // jim, bmw
+			// console.log(	p3.name	+	",	"	+	p3.car.carName	); // jim, bmw
+			// p2.name	=	"tom";
+			// p2.car.carName	=	"奥迪";
+			// console.log(	p1.name	+	",	"	+	p1.car.carName	); // tom, 奥迪
+			// console.log(	p2.name	+	",	"	+	p2.car.carName	); // tom, 奥迪
+			// console.log(	p3.name	+	",	"	+	p3.car.carName	); // jim, bmw
+
+
+
+			// Object.prototype.inherit = function(obj) {
+			// 	var o = {};
+			// 	for(var k in this) {
+			// 		o[k] = this[k];
+			// 	}
+			// 	for(var k in obj) {
+			// 		o[k] = obj[k];
+			// 	}
+			// 	return o;
+			// }
+		/*
+			var fibs = [];
+			var fib = function (n) {
+				if( fibs[ n ] ) { //have
+					return fibs[n];
+				}else {
+					var temp;
+					if(n===1 || n===0) {
+						temp = 1;
+					} else {
+						temp = fib(n-1) + fib(n-2)						
+					}
+					fibs[n] = temp;
+					return temp;
+				}
+			}；
+			*/
+			// var fib = (function () {
+			// 	var fibs = [];
+			// 	return function (n) {
+			// 		if( fibs[ n ] ) { //have
+			// 			return fibs[n];
+			// 		}else {
+			// 			var temp;
+			// 			if(n===1 || n===0) {
+			// 				temp = 1;
+			// 			} else {
+			// 				temp = fib(n-1) + fib(n-2)						
+			// 			}
+			// 			fibs[n] = temp;
+			// 			return temp;
+			// 		}
+			// 	};
+			// })();
+
+
+			//var cache = {};
+
+	// 		var cache  = (function () {
+	// 			internalCache = {};
+	// 			//length = 0;
+	// 			arr = [];
+	// 			return function (k, v) {
+	// 				if(v) {
+	// 					if(!internalCache[k]) {
+	// 				//		length++;
+	// 						//new --- key value
+	// 						if( arr.length >= 3) {
+	// 							var deleteKey = arr.shift();
+	// 							delete internalCache[deleteKey];
+	// 						}
+	// 					//	length++;	
+	// 						arr.push(k);
+	// 					}
+	// 					internalCache[k] = v;
+	// //					length++;
+	// 				}else {
+	// 					return internalCache[k];
+	// 				}
+	// 			}
+	// 		})(); 
+
+			// console.log(cache('name') + ", " + length);
+			// cache('name' , 'jim');
+			// console.log(cache('name') + ", " + length);
+
+			// console.log(cache('name') + ", " + length);
+			// cache('name' , 'tom');
+			// console.log(cache('name') + ", " + length);
+
+			// for( var i = 0; i < 100; i++){
+			// 	cache(i + '',i);
+			// }
+
+			// console.log(length);
+			// cache('name','jim');
+			// cache('name','tom');
+			// cache('age',10);
+						// 判断长度改用数组的长度, 因此删去 length 变量
+			// cache('name', 'jim');
+			// cache('name', 'tom');
+			// cache('age', 10 );
+			// cache('gender', 'nan');
+			// cache('math', 100 );
+			// cache('english', 99);
+			// cache('chinese', 120);
+
+			// for(var i = 0; i < 10 ; i++) ;
+			// // {
+			// // 	console.log(i);
+			// // }
+			// console.log(i);
+
+			// var id = function (idName) {
+			// 	return document.getElementbyId(idName);
+			// };
+			// var cName = function (cName) {
+			// 	return document.getElementsByClassName(cName);
+			// }
+
+			// var o = {
+			// 	id:function (idName) {
+			// 	return document.getElementbyId(idName);
+			// 	},
+			// 	cName:function (cName) {
+			// 	return document.getElementsByClassName(cName);
+			// 	}
+			// };
+
+			// (function () {
+			// 	function itcast(){};
+			// 	itcast.prototype.extend = function() {};
+			// 	//....
+
+
+			// 	window.$ = window.jQuery = itcast;
+			// })();
+
+
+			var o = {name:'kon',age:12};
+
+			var f = function(name, age, gender) {
+				this.name = name;
+				this.age = age;
+				this.gemder = gender;
+			};
+			f.prototype 
+			var o1 = new f('jim',11);
+
+ 	</script>
+ </head>
+ <body>
+ 
+ </body>
+ </html>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			p, div, img, span, a {
+				display: block;
+				width: 300px;
+				height: 50px;
+				border: 1px dashed red;
+				margin: 10px 0;
+			}
+		</style>
+
+		
+	</head>
+
+
+ <body>
+ 		<a href=""></a>
+		<div>div</div>
+		<img src="" alt="" />
+		<div>div</div>
+		<p>p</p>
+		<span>123</span>
+ </body>
+ 		<script type="text/javascript">
+			// //all div p
+			// var divs = document.getElementsByTagName('div');
+			// var ps = document.getElementsByTagName('p');
+
+			// // for ( var i = 0; i < divs.length; i++ ) {
+			// // 	divs[ i ].style.backgroundColor = 'yellow';
+			// // }
+			// // for ( var i = 0; i < ps.length; i++ ) {
+			// // 	ps[ i ].style.backgroundColor = 'yellow';
+			// // }
+
+			// var list = [];
+			// // list.push(divs);
+
+			// list.push.apply(list,divs);
+			// list.push.apply(list,ps);
+
+			// var tag = function ( tag, results ) {
+			// 	results = results || [];
+			// 	results.push.apply(results, document.getElementsByTagName(tag));
+			// 	return results;
+			// };
+
+			// var list = tag('div');
+			// list = tag('p',list);
+			// for ( var i = 0; i < list.length; i++ ) {
+			// 	list[ i ].style.backgroundColor = 'yellow'; 
+			//  }
+
+
+
+
+			// var arr = [1,2,3];
+			// console.log(arr.join('-'));
+
+			// var o = {length:0};
+			// // o[0] = 1;
+			// // o[1] = 2;
+			// // o['aa'] = 3;
+
+			// // o[o.length ++ ] = 1;
+			// // o[o.length ++ ] = 2;
+
+			// [].push.apply(o, [1]);
+			// [].push.apply(o, [2]);
+
+			// console.log([].join.apply(o,[', ']));
+
+
+			// 			var arr1 = [];
+			// arr1.push(1, 2, 3, 4, 5);
+			// var o1 = { length: 0 };
+			// var o2 = { length: 0 };
+			
+			// [].push.apply( o1, [ 1, 2, 3, 4, 5, 6 ] );
+			// [].push.call( o2, 1, 2, 3, 4, 5, 6, 7 );
+			//正则表达式
+			// var str = 'abcdef';
+			// var r = new RegExp('e');
+			// var o = r.exec(str);
+			// console.log(o.index);
+			// //
+			// var str = "abcdefghtjklmn";
+			// var search = "fgh";
+			// for(var i = 0; i < str.length;i++) {
+			// 	if(str.slice(i,i+search.length) === search) {
+			// 		break;
+			// 	}
+			// }
+			// console.log(i); 
+			var s = "abcdefgefgefghijefglmn";
+			var arr = [];
+			for(var i = 0; i < s.length; i++) {
+				if(s.charAt(i) === 'e') {
+					arr.push[i];
+				}
+			}
+			console.log(arr);
+
+			
+		</script>
+ </html>
