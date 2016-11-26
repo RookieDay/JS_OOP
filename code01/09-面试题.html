@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			if ( true ) {
+				
+				function f() {
+					console.log( 'true' );
+				}
+				
+			} else {
+				
+				function f() {
+					
+					console.log( 'false' );
+				}
+			}
+			
+			
+			f();
+			*/
+			
+			
+			// 变式
+			/*
+			if ( true ) {
+				
+				var f = function () {
+					console.log( 'true' );
+				};
+				
+			} else {
+				
+				var f = function () {
+					
+					console.log( 'false' );
+				};
+			}
+			*/
+			
+			// 简化
+			var f;
+			if ( true ) {
+				
+				f = function () {
+					console.log( 'true' );
+				};
+				
+			} else {
+				
+				f = function () {
+					
+					console.log( 'false' );
+				};
+			}
+			
+			
+			
+			f();
+			
+			
+			// 概念
+			// 什么是变量名提升
+			// 什么是函数名提升
+			
+			// js 执行分两步: 
+			// 1, 预解析(不是在执行代码). 将所有的声明都加载到内存中
+			//		告诉解释器有什么东西了
+			// 2, 一步一步的执行代码, 从上往下, 从左至右
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

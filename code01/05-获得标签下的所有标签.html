@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				border : 1px dotted deeppink;
+				margin: 0;
+				padding: 5px;
+				height: 100px;
+			}
+			p {
+				border : 1px dotted green;
+				margin: 0;
+				padding: 5px;
+				height: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p></p>
+			<p><span>哈哈哈</span></p>
+			<p></p>
+		</div>
+		<div>
+			<p></p>
+			<p></p>
+		</div>
+		<div>
+			<p></p>
+		</div>
+	</body>
+	<script>
+		// 目标, 将 body 中所有的后代标签都获取到
+		// $( 'body *' )
+		// 需要一个函数, 调用该函数, 返回 body 下的所有后代标签
+		
+		var nodes = document.body.getElementsByTagName( '*' );
+		
+//		for (var i = 0; i < nodes.length; i++) {
+//			nodes[ i ].style.borderColor = 'red';
+//		}
+		
+		
+		// .text()
+		// .find()
+		
+		// 1, 首先要有一个函数 find
+		// 2, 调用的时候 就是在执行 var nodes = find();
+		/*
+		function find() {
+			var arr = [];
+			
+			// 获得元素
+			
+			return arr;
+		}
+		*/
+		// 3, 要获得的是 body 下的元素. 但是 元素的层级是不确定的
+		// 4, 通过归纳得到的结论是, 需要一个方法, 返回某一个元素的子元素
+		// 	简单的做法: getChildren( node, list )
+		//		将 node 的子元素加到 list 中
+		//  复杂的做法: Array getChildren( node );
+		
+		var getChildren = function ( node, list ) {
+			// 要将 node 中所有的子元素 放到 list 中( 只要元素 )
+			for ( var i = 0; i < node.childNodes.length; i++ ) {   // 遍历node的子节点
+				var subNode = node.childNodes[ i ];	// 就是子节点
+				// 判断是否为 元素标签
+				if ( subNode.nodeType === 1 ) {
+					// 如果是元素节点就存到 list 中
+					list.push( subNode );
+				}
+			}
+		}
+		function find() {
+			var arr = [];
+			// 获得元素
+			getChildren( document.body, arr );
+			return arr;
+		}
+		
+		var nodes = find();
+		for (var i= 0; i < nodes.length; i++) {
+			nodes[ i ].style.border = "3px solid red"; 
+		}
+		
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

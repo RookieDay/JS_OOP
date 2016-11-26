@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				border : 1px dotted deeppink;
+				margin: 0;
+				padding: 5px;
+				height: 100px;
+			}
+			p {
+				border : 1px dotted green;
+				margin: 0;
+				padding: 5px;
+				height: 10px;
+			}
+		</style>
+		<script>
+			
+			var find = function ( node ) {
+				
+				var arr = [];
+				for ( var i = 0; i < node.childNodes.length; i++ ) {
+					if ( node.childNodes[ i ].nodeType === 1 ) {
+						arr.push( node.childNodes[ i ] );
+						
+						// 获得子节点的子节点
+						arr = arr.concat( find( node.childNodes[ i ] ) );
+						
+					}
+				}
+				
+				return arr;
+			}
+			
+			
+			onload = function () {
+				var nodes = find( document.body );
+			
+				for ( var i = 0; i < nodes.length; i++ ) {
+					nodes[i].style.border = "2px solid black";
+				}
+				
+			};
+			
+ 			
+		</script>
+	</head>
+	<body>
+		<div>
+			<p></p>
+			<p><span>哈哈哈</span></p>
+			<p></p>
+		</div>
+		<div>
+			<p></p>
+			<p></p>
+		</div>
+		<div>
+			<p></p>
+		</div>
+	</body>
+</html>
