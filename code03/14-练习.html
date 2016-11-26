@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			// 练习, 在字符串 abcabcabc 中找出所有的 bc 的位置
+			//         0123456789
+			var str = "abcabcabc";   // 1 4 7
+			var r = new RegExp( "bc", "g" );
+			var m;
+			var arr = [];
+			while ( m = r.exec( str ) ) {
+				arr.push( m.index );
+			}
+			alert( arr );
+			
+			
+			// 正则表达式的字面量写在一对 双斜线中
+			/bc/		new RegExp( "bc" )
+			/bc/g		new RegExp( "bc", "g" )
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

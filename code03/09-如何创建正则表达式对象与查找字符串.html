@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			// 1, 在 js 中使用 RegExp 来创建正则表达式对象
+			// 2, 语法
+			// var r = new RegExp( "正则表达式" );
+			
+			// 3, 如何使用
+			// 案例: 在 abcdefg 中找出 e 来
+			/*
+			var str = "abcdefg";
+			var search = "e";
+			for ( var i= 0; i < str.length; i++ ) {
+				if( str.charAt( i ) === search ) {
+					break;
+				}
+			}
+			console.log( i );
+			*/
+			
+			// 使用正则表达式对象
+			// 对象提供了一个 exec 的方法, 用来将符合正则表达式在字符串提取出来(包含其他信息)
+			// 语法
+			// var 对象 = 正则表达式对象.exec( 要处理的字符串 );
+			var str = "abcdefg";
+			// 1, 创建正则表达式对象
+			var r = new RegExp( "f" );
+			// 2, 调用方法
+			var o = r.exec( str );
+			// 3, 得结果
+			// index 属性, 表示找到的结果在给定字符串中的位置
+			console.log( o.index );
+			
+			
+			// 练习, 在 字符串 "abcdefghijklmn" 找出 "efg" 的位置
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

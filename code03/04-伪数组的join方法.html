@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			var arr = [ 1, 2, 3 ];
+			console.log( arr.join( '-' ) );
+			
+			
+			var o = { length: 0 };
+			// o[ 0 ] = 1;
+			// o[ 1 ] = 2;
+			/*
+			o[ o.length ++ ] = 1;
+			o[ o.length ++ ] = 2;
+			*/
+			
+			// 数组有 push
+			[].push.apply( o, [ 1 ] );
+			[].push.apply( o, [ 2 ] );
+			
+			// 数组的 join 方法将其链接起来
+			console.log( [].join.apply( o, [ ', ' ] ) );
+			
+			// slice
+			// splice
+			// ...
+			
+			// call 方法
+			// call 方法与 apply 方法完全一样, 只是在调用参数的时候不需要使用数组
+			
+			var objArr = { length: 0 };
+			[].push.call( objArr, 1 );
+			[].push.call( objArr, 2 );
+			
+			
+			// 加多个参数
+			var arr1 = [];
+			arr1.push(1, 2, 3, 4, 5);
+			var o1 = { length: 0 };
+			var o2 = { length: 0 };
+			
+			[].push.apply( o1, [ 1, 2, 3, 4, 5, 6 ] );
+			[].push.call( o2, 1, 2, 3, 4, 5, 6, 7 );
+			
+			
+			// 
+			var list = document.getElementsTagName( 'div' );
+			// var newArr = [].slice()
+			// push
+			[].push( 1, 2, 3, 4 )
+			[].push.apply( [], list );
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+

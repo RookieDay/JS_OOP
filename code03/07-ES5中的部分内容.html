@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			// 1 数组方法
+			// foreach
+			// map
+			// reduce
+			// indexOf
+			// ...
+			
+			var arr = [ 'a', 'b', 'c' ];
+			
+			// arr.forEach( 函数 );
+			// $.each
+			/*
+			arr.forEach(function ( v, k ) {
+				// console.log( k + ", " + v );
+				console.log( this );
+			}, { name: 'tom'} );
+			*/
+			
+			
+			// map 映射
+			// y = x^2
+			
+			var list = arr.map( function ( v, i ) {
+				// console.log( i + ", " + v );
+				// return i;
+				if ( v != 'b' ) return v;
+			} );
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

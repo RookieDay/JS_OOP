@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+//			var r = new RegExp( "efg" );
+//			var obj = r.exec( "abcdefghtjklmn" );
+//			console.log( obj.index );
+			
+			var str = "abcdefghtjklmn";
+			var search = "fgh";
+			for ( var i = 0; i < str.length - search.length + 1; i++ ) {
+				if ( str.slice( i, i + search.length ) == search )
+					break;
+			}
+			console.log( i );
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

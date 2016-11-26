@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			var str = "jim@itcast.cn   ,   tom@126.com   ,      jack@163.com";
+			// 将用户的名字 与 邮箱的域名都截取出来
+			// 1, 最传统而简单的做法
+			var arr1 = str.split(', ');
+			var arr2 = [];
+			for ( var i in arr1 ) {
+				var temp = arr1[ i ].split( '@' );
+				arr2.push( { user: temp[ 0 ], loc: temp[ 1 ] } );
+			}
+			
+			
+			// 2, 正则的处理办法
+			var arr3 = [];
+			var r = /([a-zA-Z0-9]+)@([\.a-zA-Z0-9]+)/g;
+			var m;
+			while ( m = r.exec( str ) ) {
+				arr3.push( { user: m[ 1 ], loc: m[ 2 ] } );
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

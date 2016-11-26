@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			//	     0123456789012345678901
+			var s = "abcdefgefgefghijefglmn";
+			var r = new RegExp( "e", "g" );
+			var arr = [];
+			var m;
+			// 在 exec 的方法中有一个规定, 如果同一个正则表达式对象 如果开启了全局模式
+			// 每调用一次 exec 方法就会查找下一个字符串, 直到最后找不到 返回 null
+			while ( ( m = r.exec( s ) ) != null ) {
+				arr.push( m.index );
+			}
+			
+			// 练习, 在字符串 abcabcabc 中找出所有的 bc 的位置
+			
+			
+			// 错误的
+//			while ( ( m = (new RegExp( "e", "g" )).exec( s ) ) != null ) {
+//				arr.push( m.index );
+//			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

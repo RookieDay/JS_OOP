@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		
+		
+			function fn(a){
+				var result = [];
+				for(var i = 0,n = a.length;i < n;i++){
+					result[i] = function(){
+						// console.log( i );
+						return a[i];
+					};
+				}
+				return result;
+			}
+			
+			var o = fn([10,20,30]); // i = 3
+			var f = o[0];
+			console.log(f());  
+		
+		
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

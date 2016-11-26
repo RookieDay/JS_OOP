@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			// 1, 从左往右数 (
+			// 2, 从 1 开始给 ( 编号
+
+			// 练习: "(a(b(c)))" 分别给出每一组的序号
+			
+			//       1 2 3
+//			var r = /(a(b(c)))/;
+//			
+//			var m = r.exec( "abc" );
+			
+			// 练习: "a((b)(c)d)"
+			// 1: bcd
+			// 2: b
+			// 3: c
+			
+			
+			// 补充: 如果希望分组不捕获
+			// 在分组的圆括号前面里面的前面加上 ?:
+			
+			//		 1     2
+			var r = /(a(?:b(c)))/;
+			
+			var m = r.exec( "abc" );
+			
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

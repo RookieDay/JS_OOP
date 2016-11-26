@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			//	     0123456789012345678901
+			// var s = "abcdefgefgefghijefglmn";
+			// 将里面所有的 e 找出来? 位置分别是多少?
+			
+			// 传统
+			/*
+			var arr = [];
+			for ( var i = 0; i < s.length; i++ ) {
+				if ( s.charAt( i ) === 'e' ) {
+					arr.push( i );
+				}
+			}
+			console.log( arr );
+			*/
+			
+			
+			// indexOf
+			// var i1 = s.indexOf( "z", 4 + 1 );
+			// alert( i1 );
+			
+			// 部分同学这么做
+			/*
+			var arr1 = [];
+			for ( var i= 0; i < s.length; i++) {
+				var index = s.indexOf( 'e', i );
+				if ( index != -1 ) {
+					arr1.push( index );
+				} else {
+					break;
+				}
+			}
+			*/
+			
+			//	     0123456789012345678901
+			var s = "abcdefgefgefghijefglmn";
+			var i = -1, arr = [];
+			do {
+				i = s.indexOf( 'e', i + 1);
+				if ( i != -1 ) {
+					arr.push( i );
+				}
+			} while ( i != -1 );
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

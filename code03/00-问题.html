@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+		/*
+			var a = 2;
+			var o = {a: 3, foo: foo};
+			var p = {a: 4};
+			
+			o.foo();  // 3
+			
+			(p.foo = o.foo)();   // 2
+			// 编译原理
+			// 此法分析以后, 留下来的不是 o.foo 而是 o.foo 里面存储的值
+			
+			function foo() {
+			    console.log(this.a);
+			}
+						
+			(p.foo)();			// 4
+			p.foo();			// 4
+		*/
+		
+			var o = { num: 123, fn: function() { alert( this.num ); } };
+			var num = 456;
+			var foo = o.fn;
+			
+			foo();
+		
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

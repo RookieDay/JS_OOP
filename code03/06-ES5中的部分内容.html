@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			// ecmascript - v262
+			// v3
+			// v5
+			// v6
+			
+			// v5
+			// 1, 严格模式  'use strict'
+			//		只要在代码的开头写上 'use strict'
+			// 'use strict'
+			/*
+			var i = 1;
+				a = 2;
+			*/
+			
+			// 2, getter 与 setter 语法糖
+			// 给开发者友好的语法格式, 但是本质没变
+			/*
+			var Person = function ( name ) {
+				return {
+					get_name: function () {
+						return name;
+					},
+					set_name: function ( v ) {
+						name = v;
+					}
+				};
+			};
+			
+			var p = new Person( 'tom' );
+			console.log( p.name() );
+			// 每次使用需要圆括号, 不是很友好
+			// 如果可以像直接操作属性名一样, 就简单了
+			console.log( p.name );
+			p.name = 'jack';	// p.name( 'jack' );
+			*/
+			
+			
+			// 语法:
+			/*
+			get 名字() {
+				方法体
+			}
+			set 名字(参数名) {
+				方法体
+			}
+			*/
+			
+			var Person = function ( name ) {
+				return {
+					get name () {			// getter 读写器
+						return name;
+					},
+					/*set name ( v ) {			// setter 读写器
+						name = v;
+					}*/
+				};
+			};
+			var p = new Person( 'jim' );
+			
+			console.log( p.name );
+			
+			p.name = 'rose';
+			
+			console.log( p.name );
+			
+			// 1, 允许只读属性存在, 如果给其赋值, 不报错的错误(赋值无效)
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
