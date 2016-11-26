@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			// 13
+			// 1> 要求每一个对象都有 inherit, 给 Object.prototype 添加即可
+			// 2> 继承自 p, 在方法中 p 用什么表示, 即 this
+			// 3> 继承自参数 obj
+			
+			Object.prototype.inherit = function ( obj ) {
+				var o = {};
+				for ( var k in this ) {
+					o[ k ] = this[ k ];
+				}
+				for ( var k in obj ) {
+					o[ k ] = obj[ k ];
+				}
+				
+				return o;
+			};
+			
+			
+			
+			// 14, 函数有方法, Function.prototype
+			//	       返回的对象继承自 函数.prototype
+			// 1> 题目中的做法
+			/*
+			Function.prototype.inherit = function () {
+				return Object.create( this.prototype );
+			};
+			*/
+			// 2> 愿意
+			/*
+			Function.prototype.inherit = function ( obj ) {
+				var o = Object.create( this.prototype );
+				for ( var k in obj ) {
+					o[ k ] = obj[ k ];
+				}
+				return o;
+			};
+			*/
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        var Car = function(name) {
+            this.carName = name;
+        };
+
+        var Person = function(pName, cName) {
+            this.name = pName;
+            this.car = new Car(cName);
+        };
+
+        var extend = function(obj) {
+                var o = {};
+                for (var k in obj) {
+                    o[k] = obj[k];
+                }
+                return o;
+            }
+            // 浅拷贝, 浅度拷贝			shallowcopy
+            // 如果有浅拷贝就有深拷贝
+            // 深拷贝需要使用递归计算		deepcopy
+
+        var p1 = new Person("jim", "BMW");
+        var p2 = p1;
+        var p3 = extend(p1);
+
+        console.log(p1.name + ",	" + p1.car.carName); // jim, bmw
+        console.log(p2.name + ",	" + p2.car.carName); // jim, bmw
+        console.log(p3.name + ",	" + p3.car.carName); // jim, bmw
+        p2.name = "tom";
+        p2.car.carName = "奥迪";
+        console.log(p1.name + ",	" + p1.car.carName); // tom, 奥迪
+        console.log(p2.name + ",	" + p2.car.carName); // tom, 奥迪
+        console.log(p3.name + ",	" + p3.car.carName); // jim, 奥迪
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

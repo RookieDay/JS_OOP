@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			// 1, 
+			/*
+			var fn = function () {
+				this.sayHello = function () {};
+			};
+			var p1 = new fn();
+			var p2 = new fn();
+			console.log( p1.sayHello === p2.sayHello );
+			*/
+			
+			// 2, 
+			// p.__proto__
+			// Person.prototype
+			
+			// 3, 
+			// 1> 利用动态特性 o.xxx = xxx
+			// 2> 构造函数中 this.xxx = xxx
+			// 3> 原型中添加 xxx.prototype.xxx = xxx
+			// 4> 字面量
+			// 5> extend
+			// 6> 关联数组 o[ 'xxx' ] = xxx
+			
+			// 4, 张三
+			
+			// 5, 同 3
+			
+			// 6, 
+			/*
+			var o = { name: 'jim', age: 19, gender: '男' };
+			var Student = function() {};
+			Student.prototype = o;
+			Student.prototype.study = function () { alert('学习'); };
+			var s = new Student();
+			*/
+			// var obj = Object.create( o );
+			// obj.study = ...
+			
+			// 7, tom
+			/*
+			var	Person	=	function	()	{
+				this.name	=	"tom";
+			};
+			Person.prototype.name	=	"jim";
+			var	p	=	new	Person();
+			console.log(	p.name	);
+			*/
+			
+			// 8,
+			/*
+			var getType = function ( obj ) {
+				if ( obj.constructor.name ) {
+					return obj.constructor.name;
+				} else {
+					return /function (.+?)\(/.exec( obj.constructor + '' )[ 1 ];
+				}
+			}
+			*/
+			
+			// 9, 
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

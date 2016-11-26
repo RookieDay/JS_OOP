@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		// 10,
+			var Fn = function () { this.age = 1; };
+			Fn.prototype.name = 'jim';
+			// Fn.prototype.age = undefined;
+			var f = new Fn();
+			// hasOwnProperty
+			// 如何判断属性是被继承的???
+			console.log( 'age' in f && !f.hasOwnProperty( 'age' ) );
+			// age 可能存在原型链上, 也可能不存在
+			
+			// 如果属性值就是 null 或 undefined, 那么此时 f.age 就无法判断了
+			
+		// 11, eval, new Function, JSON.parse, 基本的字符串操作
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
