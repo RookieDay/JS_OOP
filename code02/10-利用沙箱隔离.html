@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			/*
+			var id = function ( idName ) {
+				return document.getElementById( idName );
+			};
+			var cName = function ( cName ) {
+				return document.getElementsByClassName( cName );
+			};
+			*/
+			// 污染多
+			
+			
+			// 引入少的污染
+			
+			var o = {
+				id: function ( idName ) {
+					return document.getElementById( idName );
+				},
+				cName: function ( cName ) {
+					return document.getElementsByClassName( cName );
+				},
+				elem: null
+			};
+			
+			// 查找 .c 的dom元素, 将其加到 #dv 的里面
+			// 如何获得 o 的一个深拷贝
+			
+			
+			// 无法复用
+			
+			// 如果封装构造函数, 无意又会引起多个污染
+			
+			(function (){
+				
+				function itcast() {};
+				
+				itcast.prototype.extend = function (){};
+				// ...
+				
+				// ...
+				
+				
+				window.I = window.itcast = itcast;
+				
+			})();
+			
+			// 完全将代码隔离开, 在沙箱内部是一个独立的结构, 允许根据需要
+			// 使用各种各样的代码, 然后将需要对外公开的代码返回出来
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

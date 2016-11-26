@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		
+			// 在实际开发中 缓存是常常被使用的手段
+			// 缓存的尺寸一定要在一个范围之内, 例如 50 条
+			var cache = (function(){
+				length = 0;
+				internalCache = {};
+				arr = [];
+				
+				return function ( k, v ) {
+					// 如果传入了 v 表示存储数据, 如果只有一个 k 则读取数据
+					if ( v ) {
+						if ( !internalCache[ k ] ) {
+							length++;
+							arr.push( k ); // 缓存中没有数据的时候才会加进去
+						}
+						internalCache[ k ] = v;
+						
+					} else {
+						return internalCache[ k ];
+					}
+				};
+			})();
+			
+			// 要保证缓存最大是 50 条数据, 那么久在加入数据的时候判断一下
+			// 超过 50 就删除一条
+			
+			// 要删除数据就是删除最早加入的数据, 那么只需要
+			// 使用数组即可存储加入数据的顺序
+			// 删除的时候使用 shift 即可
+			
+			cache('name', 'jim');
+			cache('name', 'tom');
+			cache('age', 10 );
+			cache('gender', 'nan');
+			
+			
+			// 每次加数据的时候, 判断一下, 是否长度超过 50, 如果是删一条
+			// 如果不是则不管
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

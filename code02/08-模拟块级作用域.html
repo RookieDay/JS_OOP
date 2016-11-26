@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			// for (var i = 0; i < 10; i++) ;
+			// console.log( i );
+			
+			var arr, i;
+			
+			
+			arr = [
+				{ name: 'jim' },
+				{ name: 'tom' }, 
+				{ name: 'jack' }, 
+				{ name: 'clark' }
+			];
+			
+			
+			for ( i = 0; i < arr.length; i++) { 
+				arr[i].sayHello = function() { 
+					// console.log(arr[this.index].name); 
+					console.log(this.name); 
+				}; 
+			}
+			
+			
+			
+			for ( i in arr) { 
+				arr[i].sayHello(); 
+			}
+			
+			
+			// 等价于
+			/*
+			i = 0;
+			arr[0].sayHello();
+			i = 1;
+			arr[1].sayHello();
+			i = 2;
+			arr[2].sayHello(); 
+			i = 3;
+			arr[3].sayHello(); 
+			*/
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			p, div, img, span, a {
+				display: block;
+				width: 300px;
+				height: 50px;
+				border: 1px dashed red;
+				margin: 10px 0;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<a href=""></a>
+		<div>div</div>
+		<img src="" alt="" />
+		<div>div</div>
+		<p>p</p>
+		<span>123</span>
+	</body>
+	<script type="text/javascript">
+	/*
+		// 给页面上所有的 div 和 p 标签添加背景色
+		var divs = document.getElementsByTagName('div');
+		var ps = document.getElementsByTagName('p');
+		
+		// yellow
+		// dom.style.backgoundColor = 'yellow';
+		
+		
+		for ( var i = 0; i < divs.length; i++ ) {
+			divs[ i ].style.backgroundColor = 'yellow';
+		}
+		for ( var i = 0; i < ps.length; i++ ) {
+			ps[ i ].style.backgroundColor = 'yellow';
+		}
+	*/
+	
+	
+		// 给页面上所有的 div 和 p 标签添加背景色
+//		var divs = document.getElementsByTagName('div');
+//		var ps = document.getElementsByTagName('p');
+		// divs 与 ps 都是伪数组, 但是需要执行数组的方法
+		
+		/*
+		var list = [];
+		// list.push( divs );
+		
+		list.push.apply( list, divs );
+		list.push.apply( list, ps );
+		
+		// 如果函数调用 func( 1, 2, 3 )
+		// 那么使用 apply 模式 就使用 func.apply( o, [ 1, 2, 3 ] );
+		// 等价
+		*/
+		
+		
+//		var list = [].concat.apply( [].slice.apply( ps ), divs );
+//		
+//		for ( var i = 0; i < list.length; i++ ) {
+//			list[ i ].style.backgroundColor = 'yellow';
+//		}
+		
+		
+/*		var tag = function ( tag, results ) {
+			results = results || [];
+			
+			results.push.apply( results, document.getElementsByTagName( tag ) );
+			
+			return results;
+		};
+		
+		
+		var list = tag( 'div' );
+		list = tag( 'p', list );
+		
+		for ( var i = 0; i < list.length; i++ ) {
+			list[ i ].style.backgroundColor = 'yellow';
+		}*/
+		
+		
+		
+		var tag = function (tag,res){
+			res = res || [];
+			res.push.apply(res,document.getElementsByTagName(tag));
+			return res;
+		};
+		
+		var list = tag("div");
+		list = tag("p",list);
+		
+	for (var i=0; i<list.length; i++) {
+		list[i].style.backgroundColor = "red";
+	}
+		
+	</script>
+</html>

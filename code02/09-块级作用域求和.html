@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script>
+			var sum = 0;
+			
+			(function () {
+				for ( var i = 0; i <= 100; i++ ) {
+					sum += i;
+				}
+			})();
+			
+			console.log( sum );
+			
+			// 警示: 凡是在函数中定义变量有一个潜规则
+			//	应该将变量全部提取到前面
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		
+			// 在实际开发中 缓存是常常被使用的手段
+			// 缓存的尺寸一定要在一个范围之内, 例如 50 条
+			var cache = (function(){
+				
+				internalCache = {};
+				arr = [];
+				
+				return function ( k, v ) {
+					// 如果传入了 v 表示存储数据, 如果只有一个 k 则读取数据
+					if ( v ) {
+						if ( !internalCache[ k ] ) {
+							
+							// 如果是新加键值对, 实际上是放在这个里面
+							if ( arr.length >= 3 ) {
+								// 删除
+								var deleteKey = arr.shift();
+								delete internalCache[ deleteKey ];
+							}
+							
+							arr.push( k ); // 缓存中没有数据的时候才会加进去
+						}
+						internalCache[ k ] = v;
+						
+					} else {
+						return internalCache[ k ];
+					}
+				};
+			})();
+			
+			
+			
+			// 每次加数据的时候, 判断一下, 是否长度超过 50, 如果是删一条
+			// 如果不是则不管
+			
+			// 判断长度改用数组的长度, 因此删去 length 变量
+			cache('name', 'jim');
+			cache('name', 'tom');
+			cache('age', 10 );
+			cache('gender', 'nan');
+			cache('math', 100 );
+			cache('english', 99);
+			cache('chinese', 120);
+			
+			
+			/*
+			$( 'div' ).nextAll()
+			$( 'div' ).nextAll( 'p' )
+			prev, prevAll, find, children, siblings, ...
+			*/
+			// 判断元素是否符合某个选择器
+			// $( 'div .c[a=b]>*' )
+			// div			判断函数
+			// .c			判断函数
+			// [a=b]		判断函数
+			// *			判断函数
+			
+		/*	
+			var cache = function () {
+				var internalCache = {};
+				var arr = [];
+				return function (k,v) {
+					if (v) {
+						if( !internalCache[k] ){
+							if (arr.length >= 3) {
+								delete internalCache[arr.shift()];
+							}
+							arr.push(k);
+						}
+						internalCache[k] = v;
+					} else{
+						return internalCache[k];
+					}
+				};
+			}
+			*/
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+				
+		//李威 14:10:50
+		
+		var scope='global';
+		
+		function log(){
+		    var args=Array.prototype.join.call(arguments,', ');
+		    console.log(this.scope+':'+args);
+		}
+		
+		var dog={
+		    scope:'dog',
+		    yelp: function () {
+		        var scope = 'dog.yelp';
+		        log('wow');
+		    }
+		};
+		
+		dog.yelp();						// g : wow
+		dog.yelp.apply(dog);			// g : wow	
+		log.call(dog, 'created');	// d : created
+		// log.apply(dog, ['created']);
+
+ 
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function setN( obj ){ 	// 走到函数内部有一个结论: 有两个变量, 
+									// 一个是 obj
+									// 一个是 per 都指向 一个什么都没有的对象
+				obj.name = '屌丝';	// 让 obj 来找到对象, 给其添加 name
+				
+				obj = new Object(); // 创建了一个新的对象, 然后让 obj 指向它
+				obj.name = '腐女';	// 利用 obj 找到新创建的对象, 给其添加 name
+				
+			};
+			
+			var per = new Object();  // 对象上什么数据都没有
+			setN( per ); // 将其传入, 传入的东西是什么? 对象的引用
+			alert( per.name );  
+			//  这个闹不明白
+			
+			
+			// ===
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

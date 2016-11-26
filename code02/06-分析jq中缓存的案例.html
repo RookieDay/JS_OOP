@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		
+			// 在实际开发中 缓存是常常被使用的手段
+			// 缓存的尺寸一定要在一个范围之内, 例如 50 条
+			var createCache = function(){
+				var internalCache = {};
+				var arr = [];
+				return function ( k, v ) {
+					if ( v ) {
+						if ( !internalCache[ k ] ) {
+							if ( arr.length >= 3 ) {
+								// 删除
+								var deleteKey = arr.shift();
+								delete internalCache[ deleteKey ];
+							}
+							arr.push( k ); // 缓存中没有数据的时候才会加进去
+						}
+						internalCache[ k ] = v;
+					} else {
+						return internalCache[ k ];
+					}
+				};
+			};
+			
+			var type2Cache = createCache();
+			var selectorCache = createCache();
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

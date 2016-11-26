@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			// 假定不考虑闭包
+			// 是否可以定义一个数组来存储 fib 数列? 
+			// var fibs = [ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ];
+			// 如果有了这个数组, 求 fib 数列的前 3 项, 4 项 或 5 项? 
+			// 会怎样?
+			// 可以发现不用计算, 直接从数组中取即可
+			
+			// 问题 数组中第 10 项 是多少?
+			// 所以说明数组中不可能包含所有的项
+			// 因此采用一种策略, 如果数组中有直接取出来
+			// 如果没有则计算, 同时将计算的结果放入数组, 以便使用
+			/*
+			var fibs = [];
+			
+			var fib = function ( n ) {
+				// 如果数组中有则直接取出来
+				if ( fibs[ n ] ) {  // 有
+					return fibs[ n ];
+				} else { // 需要计算
+					var temp;
+					// 递归计算
+					if ( n == 1 || n == 0 ) {
+						temp = 1;
+					} else {
+						temp = fib( n-1 ) + fib( n-2 );
+					}
+					// 传统的递归计算直接结束, 没有办法将数据存储到数组中
+					
+					// 将得到的结果存储到 数组中 第 n 项
+					fibs[ n ] = temp;
+					
+					return temp;
+				}
+			};
+			*/
+			
+			
+//			var fib = (function () {
+//				var fibs = [];
+//				return function ( n ) {
+//					if ( fibs[ n ] ) {  // 有
+//						return fibs[ n ];
+//					} else { // 需要计算
+//						var temp;
+//						// 递归计算
+//						if ( n == 1 || n == 0 ) {
+//							temp = 1;
+//						} else {
+//							temp = fib( n-1 ) + fib( n-2 );
+//						}
+//						fibs[ n ] = temp;
+//						
+//						return temp;
+//					}
+//				};
+//			})();
+
+
+		var fib = (function () {
+			var fibs = [];
+			return function (n) {
+				if (fibs[n]) {
+					return fibs[n];
+				} else{
+					var temp;
+					if(n == 0 || n == 1){
+						return temp = 1;
+					}else {
+						temp = fib(n-1) + fib(n-2);
+					}
+					fibs[n] = temp;
+					return temp;
+				}
+			};
+		})();
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
